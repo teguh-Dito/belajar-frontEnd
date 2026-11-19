@@ -11,3 +11,8 @@ CREATE TABLE users (
     PRIMARY KEY (id),
     UNIQUE KEY unique_email (email)
 );
+
+Reference: 
+https://www.youtube.com/watch?v=5L9UhOnuos0
+https://just-validate.dev/docs/intro#quick-start
+https://watercss.kognise.dev/
