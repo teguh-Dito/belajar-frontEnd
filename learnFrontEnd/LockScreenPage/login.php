@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['sslogin'])){
+  header('location: index.php');
+  exit();
+}
+
+require "config.php";
+
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -120,9 +133,9 @@
     </svg>
 
     <main class="form-signin w-100 m-auto">
-        <form action="" method="">
+        <form action="proses.php" method="post">
             <img class="" style="margin-top: -50px;" src="asset/gambar/logo.png" alt="" width="150" height="150">
-            <h1 class="h2 mb-4 fw-normal text-white">codingline</h1>
+            <h1 class="h2 mb-4 fw-normal text-white"><?= $name ?></h1>
 
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" required>
@@ -134,7 +147,7 @@
             </div>
 
             <button class="w-100 btn btn-lg btn-primary my-3" type="submit" name="login">Sign in</button>
-            <p class="mt-4 mb-2 text-white" id="tagline">coding is fun</p>
+            <p class="mt-4 mb-2 text-white" id="tagline"><?= $tagline ?></p>
             <p class="text-white">&copy; 2024</p>
         </form>
     </main>

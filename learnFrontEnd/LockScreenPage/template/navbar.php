@@ -93,11 +93,11 @@
 </svg>
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white" href="#">codingline</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white" href="#"><?= $name ?></a>
 
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <span class="nav-link px-3">Username</span>
+            <span class="nav-link px-3"><?= $_SESSION['ssuser'] ?></span>
         </div>
     </div>
 

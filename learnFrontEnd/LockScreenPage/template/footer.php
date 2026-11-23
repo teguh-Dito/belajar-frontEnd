@@ -58,5 +58,48 @@
 
     </script>
 
+    <script>
+      function timerLock(){
+        let time, startTimer;
+        let frame = document.querySelector('.frame-timer');
+        let timer = document.getElementById('timer');
+
+        function countdown(){
+          frame.setAttribute('hidden', true);
+          timer.innerText = <?= $sesi ?>;
+          startTimer = setInterval(() => {
+            if(timer.innerText > 0){
+              timer.innerText--;
+              if(timer.innerText <= 5){
+                frame.removeAttribute('hidden');
+                return timer.innerText;
+              }
+            }
+            frame.setAttribute('hidden', true);
+          }, 1000);
+          startTimer();
+        }
+        
+        function resetTimer(){
+          clearTimeout(time);
+          clearInterval(startTimer);
+          time = setTimeout(() => {
+          window.location.href = 'proses.php?param=lock';
+          }, <?= $sesi * 1000 ?>);
+          countdown();
+        }
+
+        window.addEventListener('load', resetTimer, true);
+        window.addEventListener('mousemove', resetTimer, true);
+        window.addEventListener('click', resetTimer, true);
+        window.addEventListener('keydown', resetTimer, true);
+        window.addEventListener('scroll', resetTimer, true);
+      }
+
+      if(<?= $sesi ?> > 0){
+        timerLock();
+      }
+    </script>
+
 </body>
 </html>

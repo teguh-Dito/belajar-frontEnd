@@ -7,3 +7,6 @@ Reference: https://www.youtube.com/watch?v=LHDRecjZIrA
 3. Mengaktifkan halaman login
 4. Menjalankan update data pengaturan aplikasi
 5. Membuat fungsi lock app dengan timer
+
+REFERENSI
+https://www.youtube.com/watch?v=LHDRecjZIrA

@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['sslogin'])){
+  header('location: index.php');
+  exit();
+}
+
+if(!isset($_SESSION['ssuser'])){
+  header('location: login.php');
+  exit();
+}
+
+require 'config.php';
+
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -130,12 +148,12 @@
     </svg>
 
     <main class="form-signin w-100 m-auto">
-        <form action="" method="">
+        <form action="proses.php" method="post">
             <img class="" style="margin-top: -100px;" src="asset/gambar/lock-icon.png" alt="" width="80" height="80">
             <h1 class="h2 my-2 fw-normal text-white">Lock Screen</h1>
 
             <div class="mt-4 mb-2">
-                <span class="text-white h6 fw-normal">Username</span>
+                <span class="text-white h6 fw-normal"><?= $_SESSION['ssuser'] ?></span>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control rounded" id="floatingPassword" placeholder="Password" name="password" required>
@@ -144,7 +162,7 @@
 
             <button class="w-100 btn btn-lg btn-primary mb-5" type="submit" name="unlock">Unlock</button>
             
-            <a href="#" class="text-white text-decoration-none logout">Logout</a>
+            <a href="logout.php" class="text-white text-decoration-none logout">Logout</a>
         </form>
     </main>
 

@@ -1,5 +1,14 @@
 <?php 
 
+session_start();
+
+if(!isset($_SESSION['sslogin'])){
+  header('location: login.php');
+  exit();
+}
+
+require 'config.php';
+
 $title = "Lock Screen - Dashboard";
 
 require "template/header.php";
